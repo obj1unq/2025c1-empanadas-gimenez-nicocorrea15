@@ -19,7 +19,8 @@
  }
  
  object galvan {
-        var sueldo = 15000
+        var sueldo = 0
+        var deuda = 0
 
         method cambioSueldo(cantidad) {
              sueldo = cantidad
@@ -27,6 +28,18 @@
 
         method sueldo() {
            return sueldo
+        }
+
+        method gastar(cuanto) {
+             deuda = self.deuda() + cuanto
+             dinero = self.dinero() - cuanto
+        }
+        method dinero() {
+            return sueldo
+        }
+
+        method deuda() {
+             return deuda
         }
  }
  
