@@ -3,7 +3,8 @@
  
     var valorEmpanada = 15
     var cantidadVendidas = 0
- 
+    var pozo = 50000
+
    method sueldo() {
      return valorEmpanada * cantidadVendidas
    }
@@ -11,6 +12,10 @@
    method venderEmpanadas(cantidad) {
       cantidadVendidas = cantidadVendidas + cantidad
    } 
+   
+   method totalCobrado(){
+     return pozo + self.sueldo()
+   }
  }
  
  object galvan {
@@ -35,8 +40,10 @@
          return fondoActual
      }
  
-     method pagarSueldo(cantidad) {
-         fondoActual = fondoActual - cantidad
+     method pagarSueldo() {
+        var sueldoEmpleado = empleado.sueldo()
+        fondoActual = fondoActual - sueldoEmpleado
+        return sueldoEmpleado
     }
  
     method cambiarEmpleado(nuevoEmpleado) {
