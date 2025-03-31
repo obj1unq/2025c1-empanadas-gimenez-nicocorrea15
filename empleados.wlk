@@ -43,7 +43,7 @@
             deuda = self.deuda() + cuanto
         }
         method dinero() {
-            return dinero
+            return self.sueldo() - deuda 
         }
 
         method deuda() {
