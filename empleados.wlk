@@ -1,7 +1,7 @@
 
  object baigorria {
  
-    var valorEmpanada = 15
+    const valorEmpanada = 15
     var cantidadVendidas = 0
     var pozo = 50000
 
@@ -19,7 +19,7 @@
  }
  
  object galvan {
-        var sueldo = 0
+        var sueldo = 15000
         var deuda = 0
 
         method cambioSueldo(cantidad) {
@@ -32,10 +32,9 @@
 
         method gastar(cuanto) {
              deuda = self.deuda() + cuanto
-             dinero = self.dinero() - cuanto
         }
         method dinero() {
-            return sueldo
+            return sueldo - deuda
         }
 
         method deuda() {
@@ -54,9 +53,8 @@
      }
  
      method pagarSueldo() {
-        var sueldoEmpleado = empleado.sueldo()
-        fondoActual = fondoActual - sueldoEmpleado
-        return sueldoEmpleado
+        fondoActual = fondoActual - empleado.sueldo()
+        return empleado.sueldo()
     }
  
     method cambiarEmpleado(nuevoEmpleado) {
