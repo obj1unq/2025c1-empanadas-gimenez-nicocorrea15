@@ -11,6 +11,7 @@
 
    method cobrarSueldo() {
             self.sueldo()
+            cantidadVendidas = 0
         }
  
    method venderEmpanadas(cantidad) {
