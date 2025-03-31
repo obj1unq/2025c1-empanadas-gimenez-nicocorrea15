@@ -8,9 +8,13 @@
    method sueldo() {
      return valorEmpanada * cantidadVendidas
    }
+
+   method cobrarSueldo() {
+            self.sueldo()
+        }
  
    method venderEmpanadas(cantidad) {
-      cantidadVendidas = cantidadVendidas + cantidad
+      cantidadVendidas +=  cantidad
    } 
    
    method totalCobrado(){
@@ -21,6 +25,11 @@
  object galvan {
         var sueldo = 15000
         var deuda = 0
+        var dinero = 0
+
+        method cobrarSueldo() {
+            self.sueldo()
+        }
 
         method cambioSueldo(cantidad) {
              sueldo = cantidad
@@ -31,35 +40,30 @@
         }
 
         method gastar(cuanto) {
-             deuda = self.deuda() + cuanto
+            deuda = self.deuda() + cuanto
         }
         method dinero() {
-            return sueldo - deuda
+            return dinero
         }
 
         method deuda() {
-             return deuda
+             return deuda 
         }
  }
  
  object gimenez {
  
      var fondoActual = 300000
-     var empleado = baigorria
      var cantidadVendidas = 0
      
      method fondo() {
          return fondoActual
      }
  
-     method pagarSueldo() {
-        fondoActual = fondoActual - empleado.sueldo()
-        return empleado.sueldo()
-    }
- 
-    method cambiarEmpleado(nuevoEmpleado) {
-        empleado = nuevoEmpleado
- 
+     method pagarSueldo(empleado) {
+        empleado.cobrarSueldo()
+        fondoActual -= empleado.sueldo()
+        
     }
  
     method cantidadDeclarada(cantidad) {
