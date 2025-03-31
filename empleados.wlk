@@ -1,46 +1,51 @@
-//Escribir aqui los objetos
-object baigorria {
-   
-   var valorEmpanada = 15
 
-  method sueldo() {
-    return valorEmpanada * cantidadVendidas
-  }
-   
-  method cantidadVendidas() {
-    return gimenez.cantidadDeclarada
-  } 
-}
-
-object galvan {
-       var sueldo = 15000
-}
+ object baigorria {
  
-object gimenez {
-    
-    var empleado = baigorria
-    var fondoActual = 300000
-    
-    method fondoActual() {
-        return fondoActual
+    var valorEmpanada = 15
+    var cantidadVendidas = 0
+ 
+   method sueldo() {
+     return valorEmpanada * cantidadVendidas
+   }
+ 
+   method venderEmpanadas(cantidad) {
+      cantidadVendidas = cantidadVendidas + cantidad
+   } 
+ }
+ 
+ object galvan {
+        var sueldo = 15000
+
+        method cambioSueldo(cantidad) {
+             sueldo = cantidad
+        }
+
+        method sueldo() {
+           return sueldo
+        }
+ }
+ 
+ object gimenez {
+ 
+     var fondoActual = 300000
+     var empleado = baigorria
+     var cantidadVendidas = 0
+     
+     method fondo() {
+         return fondoActual
+     }
+ 
+     method pagarSueldo(cantidad) {
+         fondoActual = fondoActual - cantidad
     }
-    
-    method aumentaSueldo(cantidad) {
-        fondoActual =  fondoActual + cantidad
+ 
+    method cambiarEmpleado(nuevoEmpleado) {
+        empleado = nuevoEmpleado
+ 
     }
-    
-    method pagarSueldo(cantidad) {
-        fondoActual = fondoActual - cantidad
-   }
-
-   method cambiarEmpleado(nuevoEmpleado) {
-       empleado = nuevoEmpleado
-        
-   }
-
-   method cantidadDeclarada(cantidad) {
-      cantidad
-   }
-
-// a aver si se guarda con este texto 
-}
+ 
+    method cantidadDeclarada(cantidad) {
+       cantidadVendidas = cantidad
+       baigorria.cantidadVendidas = cantidadVendidas
+    }
+ }
