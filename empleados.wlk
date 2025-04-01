@@ -43,13 +43,11 @@
             saldo -= cantidad
         }
         method dinero() {
-            if (saldo >= 0) saldo
-            else 0
+           return saldo.min(0).abs() // if (saldo >= 0) saldo else 0
         }
 
         method deuda() {
-             if (saldo < 0) saldo.abs()
-             else 0
+            return saldo.max(0).abs() //if (saldo < 0) saldo.abs() else 0
         }
  }
  
