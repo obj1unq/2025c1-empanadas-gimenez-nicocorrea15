@@ -42,12 +42,17 @@
         method gastar(cantidad) {
             saldo -= cantidad
         }
+        
+        // method dinero() = saldo.max(0).abs()
+
         method dinero() {
-           return saldo.min(0).abs() // if (saldo >= 0) saldo else 0
+           return  if (saldo >= 0) saldo else 0
         }
 
+       // method deuda() = saldo.min(0).abs()
+
         method deuda() {
-            return saldo.max(0).abs() //if (saldo < 0) saldo.abs() else 0
+            return  if (saldo < 0) saldo.abs() else 0
         }
  }
  
